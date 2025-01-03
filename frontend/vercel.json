@@ -1,6 +1,6 @@
 {
   "framework": "vite",
-  "buildCommand": "npm install --force && npm run build",
+  "buildCommand": "rm -rf node_modules && rm -f package-lock.json && npm install && npm run build",
   "outputDirectory": "dist",
   "headers": [
     {
