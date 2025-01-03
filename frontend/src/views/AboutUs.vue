@@ -172,10 +172,10 @@ const stats = ref([
 .about-hero-pattern {
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.1) 75%),
-              linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
-  background-size: 60px 60px;
-  background-position: 0 0, 30px 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-image: 
+    linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.1) 55%, transparent 55%);
+  background-size: 20px 20px;
   opacity: 0.1;
   animation: float 30s linear infinite;
 }
@@ -632,10 +632,10 @@ const stats = ref([
 
 @keyframes float {
   from {
-    transform: translateY(0) rotate(0deg);
+    background-position: 0 0;
   }
   to {
-    transform: translateY(-100%) rotate(5deg);
+    background-position: 40px 40px;
   }
 }
 </style>
