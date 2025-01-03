@@ -9,33 +9,16 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  server: {
-    port: 5173,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-      },
-    },
-  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     minify: 'esbuild',
     sourcemap: false,
+    target: 'es2018',
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'),
-      },
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return 'vendor';
-          }
-        }
+        manualChunks: undefined
       }
-    },
-    target: 'esnext',
-    cssCodeSplit: true
+    }
   }
 }); 
