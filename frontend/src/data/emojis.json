@@ -1,0 +1,254 @@
+[
+  {
+    "id": "smile",
+    "char": "😊",
+    "name": "Smiling Face with Smiling Eyes",
+    "category": "smileys",
+    "keywords": ["smile", "happy", "joy", "pleased"]
+  },
+  {
+    "id": "laugh",
+    "char": "😄",
+    "name": "Grinning Face with Smiling Eyes",
+    "category": "smileys",
+    "keywords": ["laugh", "happy", "joy", "funny"]
+  },
+  {
+    "id": "wink",
+    "char": "😉",
+    "name": "Winking Face",
+    "category": "smileys",
+    "keywords": ["wink", "flirt", "playful"]
+  },
+  {
+    "id": "heart_eyes",
+    "char": "😍",
+    "name": "Smiling Face with Heart-Eyes",
+    "category": "smileys",
+    "keywords": ["love", "heart", "adore", "crush"]
+  },
+  {
+    "id": "thumbs_up",
+    "char": "👍",
+    "name": "Thumbs Up",
+    "category": "people",
+    "keywords": ["approve", "ok", "yes", "good"]
+  },
+  {
+    "id": "wave",
+    "char": "👋",
+    "name": "Waving Hand",
+    "category": "people",
+    "keywords": ["hello", "goodbye", "wave", "greet"]
+  },
+  {
+    "id": "clap",
+    "char": "👏",
+    "name": "Clapping Hands",
+    "category": "people",
+    "keywords": ["applause", "praise", "congratulations"]
+  },
+  {
+    "id": "pray",
+    "char": "🙏",
+    "name": "Folded Hands",
+    "category": "people",
+    "keywords": ["please", "hope", "wish", "thank you"]
+  },
+  {
+    "id": "dog",
+    "char": "🐕",
+    "name": "Dog",
+    "category": "nature",
+    "keywords": ["pet", "animal", "friend", "loyal"]
+  },
+  {
+    "id": "cat",
+    "char": "🐱",
+    "name": "Cat Face",
+    "category": "nature",
+    "keywords": ["pet", "animal", "meow", "kitten"]
+  },
+  {
+    "id": "flower",
+    "char": "🌸",
+    "name": "Cherry Blossom",
+    "category": "nature",
+    "keywords": ["flower", "spring", "beautiful", "nature"]
+  },
+  {
+    "id": "sun",
+    "char": "☀️",
+    "name": "Sun",
+    "category": "nature",
+    "keywords": ["weather", "sunny", "bright", "day"]
+  },
+  {
+    "id": "pizza",
+    "char": "🍕",
+    "name": "Pizza",
+    "category": "food",
+    "keywords": ["food", "italian", "cheese", "slice"]
+  },
+  {
+    "id": "cake",
+    "char": "🎂",
+    "name": "Birthday Cake",
+    "category": "food",
+    "keywords": ["birthday", "celebration", "dessert", "sweet"]
+  },
+  {
+    "id": "coffee",
+    "char": "☕",
+    "name": "Hot Beverage",
+    "category": "food",
+    "keywords": ["coffee", "tea", "morning", "drink"]
+  },
+  {
+    "id": "wine",
+    "char": "🍷",
+    "name": "Wine Glass",
+    "category": "food",
+    "keywords": ["wine", "drink", "alcohol", "celebration"]
+  },
+  {
+    "id": "soccer",
+    "char": "⚽",
+    "name": "Soccer Ball",
+    "category": "activities",
+    "keywords": ["soccer", "football", "sport", "game"]
+  },
+  {
+    "id": "basketball",
+    "char": "🏀",
+    "name": "Basketball",
+    "category": "activities",
+    "keywords": ["basketball", "sport", "game", "ball"]
+  },
+  {
+    "id": "music",
+    "char": "🎵",
+    "name": "Musical Note",
+    "category": "activities",
+    "keywords": ["music", "note", "song", "melody"]
+  },
+  {
+    "id": "art",
+    "char": "🎨",
+    "name": "Artist Palette",
+    "category": "activities",
+    "keywords": ["art", "paint", "creative", "design"]
+  },
+  {
+    "id": "car",
+    "char": "🚗",
+    "name": "Automobile",
+    "category": "travel",
+    "keywords": ["car", "vehicle", "drive", "transport"]
+  },
+  {
+    "id": "plane",
+    "char": "✈️",
+    "name": "Airplane",
+    "category": "travel",
+    "keywords": ["plane", "flight", "travel", "trip"]
+  },
+  {
+    "id": "train",
+    "char": "🚂",
+    "name": "Steam Locomotive",
+    "category": "travel",
+    "keywords": ["train", "railway", "transport", "travel"]
+  },
+  {
+    "id": "world",
+    "char": "🌍",
+    "name": "Earth Globe Europe-Africa",
+    "category": "travel",
+    "keywords": ["world", "earth", "globe", "planet"]
+  },
+  {
+    "id": "gift",
+    "char": "🎁",
+    "name": "Wrapped Gift",
+    "category": "objects",
+    "keywords": ["gift", "present", "birthday", "celebration"]
+  },
+  {
+    "id": "book",
+    "char": "📚",
+    "name": "Books",
+    "category": "objects",
+    "keywords": ["book", "read", "library", "study"]
+  },
+  {
+    "id": "phone",
+    "char": "📱",
+    "name": "Mobile Phone",
+    "category": "objects",
+    "keywords": ["phone", "mobile", "device", "smartphone"]
+  },
+  {
+    "id": "camera",
+    "char": "📷",
+    "name": "Camera",
+    "category": "objects",
+    "keywords": ["camera", "photo", "picture", "image"]
+  },
+  {
+    "id": "heart",
+    "char": "❤️",
+    "name": "Red Heart",
+    "category": "symbols",
+    "keywords": ["heart", "love", "like", "emotion"]
+  },
+  {
+    "id": "star",
+    "char": "⭐",
+    "name": "Star",
+    "category": "symbols",
+    "keywords": ["star", "rating", "favorite", "night"]
+  },
+  {
+    "id": "check",
+    "char": "✅",
+    "name": "Check Mark Button",
+    "category": "symbols",
+    "keywords": ["check", "ok", "done", "complete"]
+  },
+  {
+    "id": "warning",
+    "char": "⚠️",
+    "name": "Warning",
+    "category": "symbols",
+    "keywords": ["warning", "caution", "alert", "danger"]
+  },
+  {
+    "id": "usa",
+    "char": "🇺🇸",
+    "name": "Flag: United States",
+    "category": "flags",
+    "keywords": ["usa", "united states", "america", "flag"]
+  },
+  {
+    "id": "uk",
+    "char": "🇬🇧",
+    "name": "Flag: United Kingdom",
+    "category": "flags",
+    "keywords": ["uk", "united kingdom", "britain", "flag"]
+  },
+  {
+    "id": "eu",
+    "char": "🇪🇺",
+    "name": "Flag: European Union",
+    "category": "flags",
+    "keywords": ["eu", "european union", "europe", "flag"]
+  },
+  {
+    "id": "rainbow",
+    "char": "🏳️‍🌈",
+    "name": "Rainbow Flag",
+    "category": "flags",
+    "keywords": ["rainbow", "pride", "lgbtq", "flag"]
+  }
+] 

@@ -1,0 +1,72 @@
+/* Common responsive styles for package components */
+
+@mixin responsive-grid {
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@mixin responsive-card {
+  @media (max-width: 768px) {
+    .package-card {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+
+    .package-image {
+      height: 200px;
+    }
+
+    .package-details {
+      padding: 1rem;
+    }
+
+    .package-title {
+      font-size: 1.25rem;
+    }
+
+    .package-price {
+      font-size: 1.1rem;
+    }
+
+    .package-description {
+      font-size: 0.9rem;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .package-image {
+      height: 150px;
+    }
+
+    .package-details {
+      padding: 0.75rem;
+    }
+
+    .package-title {
+      font-size: 1.1rem;
+    }
+
+    .package-price {
+      font-size: 1rem;
+    }
+  }
+} 
