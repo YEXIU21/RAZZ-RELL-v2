@@ -21,10 +21,29 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    minify: 'terser',
+    sourcemap: false,
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
       },
+      output: {
+        manualChunks: {
+          'vendor': [
+            'vue',
+            'vue-router',
+            'pinia',
+            'chart.js',
+            'socket.io-client'
+          ]
+        }
+      }
     },
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
   }
 }); 
