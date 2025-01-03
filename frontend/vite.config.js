@@ -11,14 +11,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
-    minify: 'esbuild',
-    sourcemap: false,
-    target: 'es2018',
-    rollupOptions: {
-      output: {
-        manualChunks: undefined
-      }
-    }
+    target: 'es2015',
+    minify: false
   }
 }); 
