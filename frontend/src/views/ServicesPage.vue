@@ -172,7 +172,7 @@ const services = [
     category: 'wedding',
     name: 'Classic Wedding Package',
     description: 'A comprehensive wedding planning service for your special day.',
-    image: '@/assets/services/wedding-classic.jpg',
+    image: '/src/assets/wedding.png',
     price: 150000,
     unit: 'per event',
     featured: true,
@@ -287,28 +287,41 @@ const toggleFaq = (id) => {
 
 /* Hero Section */
 .services-hero {
-  height: 400px;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('@/assets/services-hero.jpg');
+  background-image: url('/src/assets/herobck.png');
   background-size: cover;
   background-position: center;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   color: white;
-  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.services-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content h1 {
   font-size: 3rem;
+  font-weight: bold;
   margin-bottom: 1rem;
-  font-weight: 700;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-size: 1.25rem;
   max-width: 600px;
   margin: 0 auto;
 }

@@ -11,7 +11,26 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    target: 'es2015',
-    minify: false
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000,
+    cssCodeSplit: true,
+    sourcemap: false
+  },
+  css: {
+    postcss: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ]
+    }
   }
 }); 
