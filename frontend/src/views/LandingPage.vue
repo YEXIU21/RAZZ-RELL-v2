@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="@/assets/herobck.png" alt="Event Planning" />
+        <HeroSlideshow :slides="heroSlides" />
       </div>
     </section>
 
@@ -160,6 +160,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { useAuth } from '@/composables/useAuth';
 import axios from 'axios';
+import HeroSlideshow from '@/components/HeroSlideshow.vue';
 
 const showVideo = ref(false);
 const activeService = ref(null);
@@ -169,6 +170,8 @@ const tm = ref(0);
 const bookings = ref(0);
 const selectedImage = ref(null);  
 let testimonialInterval;
+const currentSlide = ref(0);
+let slideInterval;
 
 const { isAdmin } = useAuth();
 
@@ -279,6 +282,39 @@ const stats = [
 
 const galleryImages = [];
 
+const heroSlides = [
+  {
+    image: new URL('@/assets/Heroimage/herobck.png', import.meta.url).href,
+    title: 'Event Planning'
+  },
+  {
+    image: new URL('@/assets/Heroimage/vanda dbut1.jpg', import.meta.url).href,
+    title: 'Debut Events'
+  },
+  {
+    image: new URL('@/assets/Heroimage/vanda dbut.jpg', import.meta.url).href,
+    title: 'Debut Celebration'
+  },
+  {
+    image: new URL('@/assets/Heroimage/vanda margraf.jpg', import.meta.url).href,
+    title: 'Wedding Events'
+  }
+];
+
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % heroSlides.length;
+};
+
+const prevSlide = () => {
+  currentSlide.value = currentSlide.value === 0 
+    ? heroSlides.length - 1 
+    : currentSlide.value - 1;
+};
+
+const goToSlide = (index) => {
+  currentSlide.value = index;
+};
+
 const nextTestimonial = () => {
   if (currentTestimonial.value < testimonials.length - 1) {
     currentTestimonial.value++;
@@ -351,6 +387,16 @@ onMounted(async () => {
   await fetchUsers();
   await fetchBookings();
 
+  // Clear any existing intervals first
+  if (slideInterval) clearInterval(slideInterval);
+  if (testimonialInterval) clearInterval(testimonialInterval);
+
+  // Start slideshow with 3-second interval
+  slideInterval = setInterval(() => {
+    currentSlide.value = (currentSlide.value + 1) % heroSlides.length;
+  }, 3000);
+
+  // Start testimonial rotation
   testimonialInterval = setInterval(() => {
     if (currentTestimonial.value < testimonials.length - 1) {
       currentTestimonial.value++;
@@ -362,6 +408,7 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   clearInterval(testimonialInterval);
+  if (slideInterval) clearInterval(slideInterval);
 });
 
 const handleImageError = (event) => {
@@ -392,6 +439,113 @@ const handleImageError = (event) => {
   flex: 1;
   max-width: 600px;
   padding: 2rem;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.slideshow-navigation {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 2;
+}
+
+.slideshow-navigation, .slideshow-dots {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.slideshow-container:hover .slideshow-navigation,
+.slideshow-container:hover .slideshow-dots {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.slideshow-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background: white;
 }
 
 .hero-title {
@@ -455,20 +609,6 @@ const handleImageError = (event) => {
 .video-button:hover {
   background: var(--card-background);
   transform: translateY(-2px);
-}
-
-.hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: var(--shadow-lg);
 }
 
 /* Services Section */
@@ -995,12 +1135,14 @@ const handleImageError = (event) => {
     margin-bottom: 2rem;
   }
 
-  .hero-title {
-    font-size: 3rem;
+  .hero-image {
+    width: 100%;
+    height: 400px;
   }
 
-  .hero-actions {
-    justify-content: center;
+  .slideshow-container {
+    width: 100%;
+    aspect-ratio: 16/10;
   }
 
   .services,
