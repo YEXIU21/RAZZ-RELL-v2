@@ -172,10 +172,12 @@ const stats = ref([
 .about-hero-pattern {
   position: absolute;
   inset: 0;
-  background-image: url('@/assets/patterns/hero-pattern.svg');
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.1) 75%),
+              linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
   opacity: 0.1;
   animation: float 30s linear infinite;
-  background-size: 130% 130%;
 }
 
 .about-hero-content {
