@@ -3,7 +3,7 @@
     <div class="nav-container">
       <div class="nav-brand">
         <router-link to="/" class="logo">
-          <img src="@/assets/logo2.png" alt="Razz Rell Events" />
+          <img :src="currentLogo" alt="Razz Rell Events" />
         </router-link>
       </div>
 
@@ -100,6 +100,10 @@ const router = useRouter();
 const { user, isAuthenticated, logout } = useAuth();
 const { confirm } = useConfirmation();
 const { toggleTheme, isDarkMode } = useTheme();
+
+const currentLogo = computed(() => {
+  return isDarkMode() ? new URL('@/assets/logo2.png', import.meta.url).href : new URL('@/assets/logo1.png', import.meta.url).href;
+});
 
 const isOpen = ref(false);
 const isScrolled = ref(false);
