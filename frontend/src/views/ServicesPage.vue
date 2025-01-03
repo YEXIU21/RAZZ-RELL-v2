@@ -340,7 +340,8 @@ const toggleFaq = (id) => {
 
 /* Hero Section */
 .services-hero {
-  background-image: url('/src/assets/herobck.png');
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('/src/assets/herobck.png');
   background-size: cover;
   background-position: center;
   height: 400px;
