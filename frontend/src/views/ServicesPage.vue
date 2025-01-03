@@ -185,7 +185,60 @@ const services = [
       'Setup and breakdown',
     ],
   },
-  // Add more services...
+  {
+    id: 2,
+    category: 'corporate',
+    name: 'Corporate Event Package',
+    description: 'Professional event planning for your business needs.',
+    image: '/src/assets/contentimage.png',
+    price: 100000,
+    unit: 'per event',
+    featured: false,
+    features: [
+      'Venue selection and setup',
+      'Audio/visual equipment',
+      'Catering coordination',
+      'Registration management',
+      'On-site coordination',
+      'Post-event reporting',
+    ],
+  },
+  {
+    id: 3,
+    category: 'social',
+    name: 'Birthday Celebration Package',
+    description: 'Make your birthday celebration unforgettable.',
+    image: '/src/assets/kiddie.png',
+    price: 75000,
+    unit: 'per event',
+    featured: false,
+    features: [
+      'Theme development',
+      'Venue decoration',
+      'Entertainment booking',
+      'Catering services',
+      'Photography/videography',
+      'Guest management',
+    ],
+  },
+  {
+    id: 4,
+    category: 'themed',
+    name: 'Themed Party Package',
+    description: 'Create a unique themed event experience.',
+    image: '/src/assets/debut.png',
+    price: 85000,
+    unit: 'per event',
+    featured: false,
+    features: [
+      'Custom theme design',
+      'Themed decorations',
+      'Costume coordination',
+      'Themed entertainment',
+      'Specialty catering',
+      'Photo opportunities',
+    ],
+  }
 ];
 
 const addons = [
@@ -693,7 +746,7 @@ const toggleFaq = (id) => {
 .services-cta {
   padding: 6rem 2rem;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url('@/assets/cta-background.jpg');
+    url('/src/assets/herobck.png');
   background-size: cover;
   background-position: center;
   text-align: center;
