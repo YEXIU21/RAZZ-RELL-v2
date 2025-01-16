@@ -1635,7 +1635,7 @@ const handleSubmit = async (event) => {
     }
 
     const response = await axios.post(
-      "http://127.0.0.1:8000/api/add-booking",
+      `${import.meta.env.VITE_API_URL}/add-booking`,
       submitFormData,
       {
         headers: {

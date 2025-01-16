@@ -7,13 +7,14 @@ const user = ref(null);
 const token = ref(localStorage.getItem('auth_token'));
 const isAuthenticated = computed(() => !!token.value);
 const isAdmin = computed(() => localStorage.getItem('user_role') === 'admin' || localStorage.getItem('user_role') === 'staff');
+const API_URL = import.meta.env.VITE_API_URL;
 
 export function useAuth() {
   const router = useRouter();
 
   const login = async (credentials) => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/login', credentials);
+      const response = await axios.post(`${API_URL}/login`, credentials);
       
       if (response.data.status === 200) {
         token.value = response.data.token;
@@ -72,7 +73,7 @@ export function useAuth() {
     if (!token.value) return;
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/my-info');
+      const response = await fetch(`${API_URL}/my-info`);
 
       if (!response.ok) {
         throw new Error('Failed to fetch user');
@@ -87,7 +88,7 @@ export function useAuth() {
 
   const register = async (userData) => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/register', userData);
+      const response = await axios.post(`${API_URL}/register`, userData);
       
       if (response.data.status === 200) {
         token.value = response.data.token;
@@ -116,7 +117,7 @@ export function useAuth() {
 
   const contactUs = async (userData) => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/contact-us', userData);
+      const response = await axios.post(`${API_URL}/contact-us`, userData);
       
       if (response.data.status === 200) {
         await Swal.fire({
@@ -144,7 +145,7 @@ export function useAuth() {
 
   const updateProfile = async (profileData) => {
     try {
-      const response = await fetch('http://localhost:3000/api/auth/profile', {
+      const response = await fetch(`${API_URL}/auth/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -169,7 +170,7 @@ export function useAuth() {
 
   const changePassword = async (passwordData) => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/reset-password', passwordData);
+      const response = await axios.post(`${API_URL}/reset-password`, passwordData);
       
       if (response.data.status === 200) {
         await Swal.fire({
@@ -197,7 +198,7 @@ export function useAuth() {
 
   const forgotPassword = async (email) => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/forgot-password', { email });
+      const response = await axios.post(`${API_URL}/forgot-password`, { email });
       
       if (response.data.status === 200) {
         await Swal.fire({

@@ -5,10 +5,11 @@ import Swal from 'sweetalert2';
 
 export function useGuest() {
   const router = useRouter();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const addGuest = async (credentials) => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/add-guest', credentials);
+      const response = await axios.post(`${API_URL}/add-guest`, credentials);
 
       if(response.data.status === 200){
         Swal.fire({
@@ -33,7 +34,7 @@ export function useGuest() {
 
   const getAllGuests = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/get-all-guest');
+      const response = await axios.get(`${API_URL}/get-all-guest`);
       console.log(response.data);  
     } catch (error) {
       console.error('Adding guest error:', error);

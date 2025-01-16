@@ -354,7 +354,7 @@ const handleSubmit = async () => {
     }
 
     const response = await axios.post(
-      'http://127.0.0.1:8000/api/update-package',
+      `${import.meta.env.VITE_API_URL}/update-package`,
       formDataToSend,
       {
         headers: {

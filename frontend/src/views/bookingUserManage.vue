@@ -234,7 +234,7 @@ const totalPages = computed(() => {
 const fetchBookings = async () => {
   try {
     const userInfo = JSON.parse(localStorage.getItem('user_info'));
-    const response = await axios.get(`http://127.0.0.1:8000/api/bookings/user/${userInfo.id}`);
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bookings/user/${userInfo.id}`);
     bookings.value = response.data.bookings;
     console.log(bookings.value);
   } catch (error) {
@@ -245,7 +245,7 @@ const fetchBookings = async () => {
 const fetchRatings = async () => {
   try {
     const userInfo = JSON.parse(localStorage.getItem('user_info'));
-    const response = await axios.get(`http://127.0.0.1:8000/api/get-all-ratings/${userInfo.id}`);
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/get-all-ratings/${userInfo.id}`);
     ratings.value = response.data.ratings;
   } catch (error) {
     console.error('Error fetching ratings:', error);
@@ -390,7 +390,7 @@ const confirmCancelBooking = async () => {
     // If user confirms and provides reason
     if (formValues) {
       const response = await axios.post(
-        `http://127.0.0.1:8000/api/update-booking`,
+        `${import.meta.env.VITE_API_URL}/update-booking`,
         {
           id: selectedBooking.value.id,
           status: 'cancelled',

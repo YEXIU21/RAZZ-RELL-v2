@@ -518,7 +518,7 @@ const handleImageUpload = (event) => {
 };
 
 const getAllGuessst = async () => {
-  const response = await axios.get('http://127.0.0.1:8000/api/get-all-guest');
+  const response = await axios.get(`${import.meta.env.VITE_API_URL}/get-all-guest`);
   allGuests.value = response.data;
 };
 
@@ -659,7 +659,7 @@ const handleSubmit = async () => {
 
     console.log('Submitting package data:', Object.fromEntries(submitData.entries()));
 
-    const response = await axios.post('http://127.0.0.1:8000/api/add-package', submitData, {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/add-package`, submitData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

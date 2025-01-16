@@ -212,7 +212,7 @@ const getImageUrl = (imagePath) => {
 const fetchPackageDetails = async () => {
   try {
     isLoading.value = true;
-    const response = await axios.get(`http://127.0.0.1:8000/api/get-package-by-id/${route.params.id}`);
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/get-package-by-id/${route.params.id}`);
     
     // Check if package is inactive
     if (response.data.status?.toLowerCase() !== 'active') {
