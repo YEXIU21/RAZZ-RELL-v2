@@ -3,7 +3,7 @@
     <div class="packages-page">
       <div class="content-wrapper">
         <div class="packages-content">
-          <header class="packages-header">
+          <header class="packages-header" style="margin-top: 3rem;">
             <h1 class="page-title">Our Event Packages</h1>
             <p class="page-subtitle">Find the perfect package for your special occasions</p>
           </header>

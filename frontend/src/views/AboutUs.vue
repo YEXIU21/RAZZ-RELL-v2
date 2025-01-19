@@ -166,7 +166,7 @@ const stats = ref([
   background: var(--primary-color);
   overflow: hidden;
   padding: 4rem 1.5rem;
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 .about-hero-pattern {

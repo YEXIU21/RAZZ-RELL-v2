@@ -1,6 +1,6 @@
 <template>
   <div class="contact-page">
-    <header class="contact-header">
+    <header class="contact-header" style="margin-top: 3rem;">
       <h1>Get in Touch</h1>
       <p>We'd love to hear from you. Let us help make your event extraordinary.</p>
     </header>

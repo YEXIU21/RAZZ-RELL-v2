@@ -2,6 +2,7 @@
   <div class="gallery-page">
     <header class="gallery-header">
       <div class="header-content">
+        
         <h1>Our Portfolio</h1>
         <p>Browse through our collection of memorable events</p>
         <div class="header-decoration"></div>
@@ -329,7 +330,7 @@ onMounted(() => {
 
 <style scoped>
 .gallery-page {
-  padding-top: 60px;
+  padding-top: 112px;
   padding-left: 2rem;
   padding-right: 2rem;
   max-width: 1400px;
