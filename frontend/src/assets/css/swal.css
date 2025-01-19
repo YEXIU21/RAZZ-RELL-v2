@@ -1,0 +1,63 @@
+/* SweetAlert2 Dark Mode Styles */
+.swal2-popup {
+  background: var(--card-background) !important;
+  color: var(--text-color) !important;
+}
+
+.swal2-title {
+  color: var(--text-color) !important;
+}
+
+.swal2-html-container {
+  color: var(--text-secondary) !important;
+}
+
+.swal2-confirm {
+  background: var(--primary-color) !important;
+  color: white !important;
+}
+
+.swal2-cancel {
+  background: var(--error-color) !important;
+  color: white !important;
+}
+
+.swal2-icon {
+  border-color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Preserve original layout */
+.swal2-popup {
+  padding: 1.25em;
+  border-radius: 0.5em;
+  font-size: 1rem;
+}
+
+.swal2-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 1em 0;
+}
+
+.swal2-html-container {
+  font-size: 1.1em;
+  margin: 1em 0;
+}
+
+.swal2-actions {
+  margin: 1.25em auto 0;
+}
+
+.swal2-styled {
+  margin: 0.3125em;
+  padding: 0.625em 1.1em;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 0.25em;
+}
+
+/* Dark overlay */
+.swal2-backdrop-show {
+  background: rgba(0, 0, 0, 0.6) !important;
+} 
