@@ -50,8 +50,9 @@ A modern, full-stack event management system built with Laravel and Vue.js, desi
 
 ## 📦 Installation
 
-1. **Setup the project**
+1. **Clone the repository**
    ```bash
+   git clone https://github.com/YEXIU21/RAZZ-RELL.git
    cd RAZZ-RELL
    ```
 
@@ -109,9 +110,9 @@ VITE_GOOGLE_MAPS_API_KEY=your_google_maps_key
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create your feature branch
-3. Make your changes
-4. Submit your changes
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
 ## 📝 License
@@ -120,7 +121,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- **YEXIU21** - *Initial work*
+- **YEXIU21** - *Initial work* - [GitHub Profile](https://github.com/YEXIU21)
 
 ## 🙏 Acknowledgments
 
