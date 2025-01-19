@@ -7,10 +7,6 @@ if exist godaddy-deploy (
     rd /s /q godaddy-deploy
 )
 
-rem Create deployment directory
-echo Creating deployment directory...
-mkdir godaddy-deploy
-
 rem Check if backend directory exists
 if not exist backend (
     echo Error: backend directory not found!
@@ -19,6 +15,9 @@ if not exist backend (
     exit /b 1
 )
 
+rem Create deployment directory
+echo Creating deployment directory...
+mkdir godaddy-deploy
 cd backend
 
 rem Create exclude.txt file first
@@ -52,18 +51,20 @@ xcopy /E /I /EXCLUDE:exclude.txt . ..\godaddy-deploy\
 rem Check if public directory exists before renaming
 if exist ..\godaddy-deploy\public (
     echo Renaming public folder to public_html...
-    cd ..
-    ren godaddy-deploy\public public_html
+    ren ..\godaddy-deploy\public public_html
 ) else (
     echo Error: public directory not found in deployment package!
-    cd ..
     pause
     exit /b 1
 )
 
 rem Copy production .env file
 echo Copying production .env file...
-copy backend\.env godaddy-deploy\.env
+copy .env ..\godaddy-deploy\.env
+
+rem Clean up
+del exclude.txt
+cd ..
 
 echo === Deployment Files Ready ===
 echo.
@@ -83,4 +84,4 @@ echo    - Files: 644
 echo    - storage/ and bootstrap/cache: 775
 echo.
 echo Press any key to exit...
-pause
+pause 
