@@ -1,51 +1,86 @@
 @echo off
 echo === Preparing Laravel Backend for GoDaddy Deployment ===
 
+rem Clean up any existing deployment directory
+if exist godaddy-deploy (
+    echo Cleaning up old deployment directory...
+    rd /s /q godaddy-deploy
+)
+
 rem Create deployment directory
 echo Creating deployment directory...
 mkdir godaddy-deploy
+
+rem Check if backend directory exists
+if not exist backend (
+    echo Error: backend directory not found!
+    echo Please run this script from the root project directory.
+    pause
+    exit /b 1
+)
+
 cd backend
 
-rem Copy all Laravel files EXCEPT node_modules and other unnecessary files
+rem Create exclude.txt file first
+echo Creating exclude list...
+(
+echo node_modules\
+echo .git\
+echo tests\
+echo .env.example
+echo .gitignore
+echo .gitattributes
+echo README.md
+echo phpunit.xml
+echo vite.config.js
+echo Dockerfile
+echo .dockerignore
+echo railway.json
+echo railway.socket.json
+echo post-deploy.sh
+echo Procfile
+echo socket-server.js
+echo prepare-deploy.bat
+echo prepare-godaddy-deploy.ps1
+echo deploy-godaddy.sh
+) > exclude.txt
+
+rem Copy all Laravel files EXCEPT excluded ones
 echo Copying Laravel files...
 xcopy /E /I /EXCLUDE:exclude.txt . ..\godaddy-deploy\
 
-rem Create exclude.txt file
-echo node_modules\ > exclude.txt
-echo .git\ >> exclude.txt
-echo tests\ >> exclude.txt
-echo .env.example >> exclude.txt
-echo .gitignore >> exclude.txt
-echo .gitattributes >> exclude.txt
-echo README.md >> exclude.txt
-echo phpunit.xml >> exclude.txt
-echo vite.config.js >> exclude.txt
-echo Dockerfile >> exclude.txt
-echo .dockerignore >> exclude.txt
-echo railway.json >> exclude.txt
-echo railway.socket.json >> exclude.txt
-echo post-deploy.sh >> exclude.txt
-echo Procfile >> exclude.txt
-echo socket-server.js >> exclude.txt
-echo prepare-deploy.bat >> exclude.txt
-echo prepare-godaddy-deploy.ps1 >> exclude.txt
-echo deploy-godaddy.sh >> exclude.txt
+rem Check if public directory exists before renaming
+if exist ..\godaddy-deploy\public (
+    echo Renaming public folder to public_html...
+    cd ..
+    ren godaddy-deploy\public public_html
+) else (
+    echo Error: public directory not found in deployment package!
+    cd ..
+    pause
+    exit /b 1
+)
 
-rem Move public folder contents to public_html
-echo Moving public folder to public_html...
-ren ..\godaddy-deploy\public public_html
+rem Copy production .env file
+echo Copying production .env file...
+copy backend\.env godaddy-deploy\.env
 
-echo === Deployment Package Created ===
+echo === Deployment Files Ready ===
 echo.
-echo Your deployment package is ready in the 'godaddy-deploy' folder.
+echo Your files are ready in the 'godaddy-deploy' folder:
+echo.
+echo 1. From godaddy-deploy folder:
+echo    - Upload all files EXCEPT public_html folder to: /home/uzgoj867hnp5/
+echo.
+echo 2. From godaddy-deploy/public_html folder:
+echo    - Upload all contents to: /home/uzgoj867hnp5/public_html/
 echo.
 echo IMPORTANT DEPLOYMENT STEPS:
-echo 1. Upload all contents EXCEPT public_html folder to the root directory
-echo 2. Upload contents of public_html folder to public_html on GoDaddy
-echo 3. Configure .env file with your production settings
-echo 4. Set file permissions:
+echo 1. Configure .env file with your production settings
+echo 2. Set file permissions:
 echo    - Folders: 755
 echo    - Files: 644
 echo    - storage/ and bootstrap/cache: 775
 echo.
-pause 
+echo Press any key to exit...
+pause
